@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  /* Signal Analysis palette */
+  --color-ink: #0b0e14;
+  --color-ink-raised: #11151d;
+  --color-ink-line: #1f2530;
+  --color-paper: #f5f3ec;
+  --color-paper-dim: #aab0bd;
+  --color-signal-pos: #5eead4;
+  --color-signal-neg: #fb7185;
+  --color-signal-neu: #94a3b8;
+  --color-amber: #f5a623;
+
+  --background: var(--color-ink);
+  --foreground: var(--color-paper);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+* {
+  scrollbar-color: var(--color-ink-line) var(--color-ink);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(94, 234, 212, 0.07), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal-pos);
+  outline-offset: 2px;
+}
+
+@keyframes waveform-draw {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
+
