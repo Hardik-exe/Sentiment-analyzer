@@ -50,6 +50,11 @@ export default function SentenceList({ sentences }: { sentences: SentenceAnalysi
               <span>{EMOTION_LABELS[s.emotion] ?? s.emotion}</span>
             </div>
             <p className="text-sm text-[var(--color-paper)]">{s.sentence}</p>
+            {s.reason && (
+              <p className="mt-1.5 flex items-center gap-1 font-[family-name:var(--font-mono)] text-[11px] italic text-[var(--color-paper-dim)]">
+                <span aria-hidden="true">↳</span> {s.reason}
+              </p>
+            )}
           </div>
         ))}
 
