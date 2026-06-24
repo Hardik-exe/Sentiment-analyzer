@@ -1,5 +1,5 @@
 {
-  "name": "Sentiment Analyzer n8n Pipeline",
+  "name": "Sentiment Analyzer Pipeline",
   "nodes": [
     {
       "parameters": {
