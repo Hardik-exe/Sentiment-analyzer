@@ -23,6 +23,7 @@ export default function SentimentWaveform({ sentences }: WaveformProps) {
     sentiment: s.sentiment,
     sentence: s.sentence,
     speaker: s.speaker,
+    reason: s.reason,
   }));
 
   return (
@@ -84,6 +85,9 @@ export default function SentimentWaveform({ sentences }: WaveformProps) {
                     {d.speaker} · {d.sentiment}
                   </p>
                   <p className="text-[var(--color-paper)]">{d.sentence}</p>
+                  {d.reason && (
+                    <p className="mt-1 italic text-[var(--color-paper-dim)]">↳ {d.reason}</p>
+                  )}
                 </div>
               );
             }}
