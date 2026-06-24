@@ -17,6 +17,7 @@ export interface SentenceAnalysis {
   sentiment: Sentiment;
   emotion: Emotion;
   intensity: number;
+  reason?: string;
 }
 
 export interface KPIs {
